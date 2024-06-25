@@ -9,28 +9,26 @@ import { transformAmoLeadResponses } from './utils/transform-amo-lead-responses'
 
 @Injectable()
 export class LeadsService {
-  constructor(
-    private readonly httpService: HttpService
-  ) {}
+  constructor(private readonly httpService: HttpService) {}
 
   async find(query: string): Promise<ILeadResponse[]> {
     const [
-      {data: leads}, 
-      {data: users}, 
-      {data: pipelines},
-      {data: contacts}
+      { data: leads },
+      { data: users },
+      { data: pipelines },
+      { data: contacts },
     ] = await Promise.all([
       this.httpService.axiosRef.get<ILeadsAmoResponse>('/leads', {
         params: {
           query,
-          with: 'contacts'
-        }
+          with: 'contacts',
+        },
       }),
       this.httpService.axiosRef.get<IUsersAmoResponse>('/users'),
       this.httpService.axiosRef.get<IPipelinesAmoResponse>('/leads/pipelines'),
       this.httpService.axiosRef.get<IContactsAmoResponse>('/contacts'),
-    ])
-    
+    ]);
+
     return transformAmoLeadResponses(leads, users, pipelines, contacts);
   }
 }

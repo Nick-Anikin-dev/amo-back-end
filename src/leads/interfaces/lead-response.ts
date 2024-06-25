@@ -1,28 +1,28 @@
 interface IResponsible {
-    id: number;
-    name: string;
+  id: number;
+  name: string;
 }
 
 interface IContactCustomFieldValue {
-    value: string;
+  value: string;
 }
 
 interface IContactCustomField {
-    name: string;
-    values: IContactCustomFieldValue[];
+  name: string;
+  values: IContactCustomFieldValue[];
 }
 
 interface IContact {
-    id: number;
-    name: string;
-    customFieldsValues: IContactCustomField[];
+  id: number;
+  name: string;
+  customFieldsValues: IContactCustomField[];
 }
 
 export interface ILeadResponse {
-    name: string;
-    budget: number;
-    status: string;
-    responsible: IResponsible;
-    createdAt: number;
-    contacts: IContact[];
+  name: string;
+  budget: number;
+  status: string;
+  responsible: IResponsible;
+  createdAt: number;
+  contacts: IContact[];
 }

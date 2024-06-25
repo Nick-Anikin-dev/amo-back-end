@@ -1,23 +1,23 @@
 interface IContactCustomFieldValue {
-    value: string;
+  value: string;
 }
 
 interface IContactCustomField {
-    field_id: number,
-    field_name: string,
-    field_code: string,
-    field_type: string,
-    values: IContactCustomFieldValue[];
+  field_id: number;
+  field_name: string;
+  field_code: string;
+  field_type: string;
+  values: IContactCustomFieldValue[];
 }
 
 interface IContact {
-    id: number;
-    name: string;
-    custom_fields_values: IContactCustomField[];
+  id: number;
+  name: string;
+  custom_fields_values: IContactCustomField[];
 }
 
 export interface IContactsAmoResponse {
-    _embedded: {
-        contacts: IContact[];
-    }
+  _embedded: {
+    contacts: IContact[];
+  };
 }

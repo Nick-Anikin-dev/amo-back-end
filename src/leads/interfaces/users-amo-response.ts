@@ -1,11 +1,11 @@
 interface IAmoUser {
-    id: number;
-    name: string;
-    email: string;
+  id: number;
+  name: string;
+  email: string;
 }
 
 export interface IUsersAmoResponse {
-    _embedded: {
-        users: IAmoUser[]
-    }  
+  _embedded: {
+    users: IAmoUser[];
+  };
 }

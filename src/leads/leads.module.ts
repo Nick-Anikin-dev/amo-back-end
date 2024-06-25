@@ -11,8 +11,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       useFactory: async (configService: ConfigService) => ({
         baseURL: configService.get('API_URL'),
         headers: {
-          Authorization: `Bearer ${configService.get('API_KEY')}`
-        }
+          Authorization: `Bearer ${configService.get('API_KEY')}`,
+        },
       }),
       inject: [ConfigService],
     }),
