@@ -46,8 +46,8 @@ export const transformAmoLeadResponses = (
     }
     return map;
   }, {});
-
-  return leads._embedded.leads.map((lead) => {
+  
+  return leads._embedded?.leads?.map((lead) => {
     return {
       name: lead.name,
       budget: lead.price,
@@ -58,5 +58,5 @@ export const transformAmoLeadResponses = (
         (contact) => contactsMap[contact.id],
       ),
     };
-  });
+  }) || [];
 };
